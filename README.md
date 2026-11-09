@@ -31,18 +31,6 @@ I work across the whole product: **React and Next.js** on the front, **Node.js a
 | **Cloud & delivery** | AWS · Vercel · Cloudinary |
 | **Applied AI / ML** | XGBoost · scikit-learn · OpenCV |
 
-## Stack
-
-| | |
-|:--|:--|
-| **Languages** | C · C++ · Java · JavaScript · TypeScript · Python |
-| **Frontend** | React · Next.js · Redux Toolkit · Tailwind CSS |
-| **Backend** | Node.js · Express.js · FastAPI · REST APIs · JWT · Bcrypt · RBAC |
-| **Database** | MongoDB · PostgreSQL · MySQL · Redis |
-| **Cloud & deploy** | AWS · Vercel · Cloudinary · Git · GitHub |
-| **AI / ML** | Scikit-learn · Pandas · NumPy · XGBoost · YOLOv8 · OpenCV · OpenAI API |
-| **Integrations** | Razorpay · Webhooks · Shiprocket · Shipmozo · Meta Pixel · Google Analytics · Google Tag Manager |
-
 ## Experience
 
 <table>
@@ -120,7 +108,7 @@ Shipping production code at Imperial while completing the degree. Projects along
 </tr>
 </table>
 
-**Also built:** &nbsp;`AR Emergency Route Simulator` &nbsp;`Smart Healthcare Emergency Response` &nbsp;`Smart Traffic Management` &nbsp;`Retail Demand Forecasting` &nbsp;`Hospital Management System` &nbsp;`Travel Planner DBMS`
+**Also built:** AR Emergency Route Simulator · Smart Healthcare Emergency Response · Smart Traffic Management · Retail Demand Forecasting · Hospital Management System · Travel Planner DBMS
 
 ## Highlights
 
@@ -131,6 +119,18 @@ Shipping production code at Imperial while completing the degree. Projects along
   To add one, put a line like this here (no image needed):
   **Certifications:** &nbsp;`Name — Issuer, Year` → link to the credential URL
 -->
+
+## Stack
+
+| | |
+|:--|:--|
+| **Languages** | C · C++ · Java · JavaScript · TypeScript · Python |
+| **Frontend** | React · Next.js · Redux Toolkit · Tailwind CSS |
+| **Backend** | Node.js · Express.js · FastAPI · REST APIs · JWT · Bcrypt · RBAC |
+| **Database** | MongoDB · PostgreSQL · MySQL · Redis |
+| **Cloud & deploy** | AWS · Vercel · Cloudinary · Git · GitHub |
+| **AI / ML** | Scikit-learn · Pandas · NumPy · XGBoost · YOLOv8 · OpenCV · OpenAI API |
+| **Integrations** | Razorpay · Webhooks · Shiprocket · Shipmozo · Meta Pixel · Google Analytics · Google Tag Manager |
 
 ## Activity
 
