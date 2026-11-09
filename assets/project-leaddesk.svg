@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="300" viewBox="0 0 480 300" role="img" aria-label="LeadDesk Mini — Lead-management CRM for small sales teams: capture, assign and track leads through a six-stage pipeline with role-based access.">
+<title>LeadDesk Mini — Lead-management CRM for small sales teams: capture, assign and track leads through a six-stage pipeline with role-based access.</title>
+<style>.s{font-family:Inter,'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif}.m{font-family:'JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace}.blink{animation:blink 1.1s steps(1) infinite}.pulse{animation:pulse 2.4s ease-in-out infinite}.flow{stroke-dasharray:3 9;animation:flow 1.8s linear infinite}@keyframes blink{50%{opacity:0}}@keyframes pulse{50%{opacity:.25}}@keyframes flow{to{stroke-dashoffset:-24}}@media (prefers-reduced-motion:reduce){.blink,.pulse,.flow{animation:none}}</style>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#050505" stop-opacity="1"/><stop offset="0.55" stop-color="#080B12" stop-opacity="1"/><stop offset="1" stop-color="#0B1020" stop-opacity="1"/></linearGradient><linearGradient id="edge" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4F7CFF" stop-opacity="0"/><stop offset="0.3" stop-color="#4F7CFF" stop-opacity="1"/><stop offset="0.7" stop-color="#8B5CF6" stop-opacity="1"/><stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/></linearGradient><clipPath id="clip"><rect width="480" height="300" rx="16"/></clipPath><pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#FFFFFF" stroke-opacity=".05"/></pattern><radialGradient id="gfade"><stop offset="0" stop-color="#FFF"/><stop offset="1" stop-color="#FFF" stop-opacity="0"/></radialGradient><mask id="gmask"><rect width="480" height="300" fill="url(#gfade)"/></mask><radialGradient id="glow0"><stop offset="0" stop-color="#22D3EE" stop-opacity="0.3"/><stop offset="1" stop-color="#22D3EE" stop-opacity="0"/></radialGradient><radialGradient id="glow1"><stop offset="0" stop-color="#22D3EE" stop-opacity="0.1"/><stop offset="1" stop-color="#22D3EE" stop-opacity="0"/></radialGradient><linearGradient id="name" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3F6FC" stop-opacity="1"/><stop offset="1" stop-color="#C9D3EA" stop-opacity="1"/></linearGradient></defs>
+<g clip-path="url(#clip)">
+<rect width="480" height="300" fill="url(#bg)"/>
+<rect width="480" height="300" fill="url(#grid)" mask="url(#gmask)"/>
+<ellipse cx="480" cy="0" rx="300" ry="200" fill="url(#glow0)"/>
+<ellipse cx="0" cy="300" rx="260" ry="160" fill="url(#glow1)"/>
+<rect x="16" y="0" width="448" height="1" fill="url(#edge)" opacity=".7"/>
+</g>
+<rect x=".5" y=".5" width="479" height="299" rx="16" fill="none" stroke="#1C2540"/>
+<text x="28" y="40" class="m" font-size="11" font-weight="700" fill="#22D3EE" text-anchor="start" letter-spacing="1">P/03</text>
+<text x="69.28" y="40" class="m" font-size="11" font-weight="400" fill="#5B647A" text-anchor="start" letter-spacing="1">FULL-STACK · CRM</text>
+<rect x="397.2" y="25" width="54.8" height="22" rx="11" fill="#0E1526" stroke="#26304A"/>
+<circle cx="409.2" cy="36" r="3" fill="#34D399" class="pulse"/>
+<text x="418.2" y="40" class="m" font-size="10" font-weight="400" fill="#C9D3EA" text-anchor="start" letter-spacing="1">LIVE</text>
+<text x="28" y="92" class="s" font-size="30" font-weight="800" fill="url(#name)" text-anchor="start">LeadDesk Mini</text>
+<text x="28" y="126" class="s" font-size="14.5" font-weight="400" fill="#8D97AD" text-anchor="start">Lead-management CRM for small sales teams:</text>
+<text x="28" y="148" class="s" font-size="14.5" font-weight="400" fill="#8D97AD" text-anchor="start">capture, assign and track leads through a</text>
+<text x="28" y="170" class="s" font-size="14.5" font-weight="400" fill="#8D97AD" text-anchor="start">six-stage pipeline with role-based access.</text>
+<rect x="28" y="196" width="2" height="16" rx="1" fill="#22D3EE"/>
+<text x="38" y="209" class="m" font-size="12" font-weight="400" fill="#C9D3EA" text-anchor="start">Vercel + Render + MongoDB Atlas</text>
+<rect x="28" y="240" width="54" height="26" rx="7" fill="#0E1526" stroke="#1F2942"/>
+<text x="38" y="257" class="m" font-size="11" font-weight="400" fill="#C9D3EA" text-anchor="start">React</text>
+<rect x="88.1" y="240" width="68" height="26" rx="7" fill="#0E1526" stroke="#1F2942"/>
+<text x="98.1" y="257" class="m" font-size="11" font-weight="400" fill="#C9D3EA" text-anchor="start">Express</text>
+<rect x="161.84" y="240" width="68" height="26" rx="7" fill="#0E1526" stroke="#1F2942"/>
+<text x="171.84" y="257" class="m" font-size="11" font-weight="400" fill="#C9D3EA" text-anchor="start">MongoDB</text>
+<rect x="235.58" y="240" width="75" height="26" rx="7" fill="#0E1526" stroke="#1F2942"/>
+<text x="245.58" y="257" class="m" font-size="11" font-weight="400" fill="#C9D3EA" text-anchor="start">Tailwind</text>
+<rect x="316.14" y="240" width="47" height="26" rx="7" fill="#0E1526" stroke="#1F2942"/>
+<text x="326.14" y="257" class="m" font-size="11" font-weight="400" fill="#C9D3EA" text-anchor="start">RBAC</text>
+</svg>
