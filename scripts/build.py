@@ -18,6 +18,7 @@ from xml.sax.saxutils import escape
 
 USER = "AKSHATHEHE11"
 OUT = Path(__file__).resolve().parent.parent / "assets"
+CACHE = Path(__file__).resolve().parent / ".github-cache.json"  # last good API responses (gitignored)
 ICON_URL = "https://cdn.jsdelivr.net/npm/simple-icons@16.37.0/icons/{}.svg"
 
 # Neutral greys carry the design; blue is the one accent, violet appears only in thin rules.
@@ -346,16 +347,28 @@ def fetch(url, token=None):
         return r.read().decode("utf-8")
 
 
+def api(path, token, cache):
+    """GET from the GitHub API. Good responses are cached, so a rate-limited or offline rebuild
+    reuses the last known data instead of failing."""
+    try:
+        cache[path] = json.loads(fetch(f"https://api.github.com{path}", token))
+    except Exception:
+        if path not in cache:
+            raise
+    return cache[path]
+
+
 def activity():
     token = os.environ.get("GITHUB_TOKEN")
-    api = "https://api.github.com"
-    repos = [r for r in json.loads(fetch(f"{api}/users/{USER}/repos?per_page=100&type=owner", token))
+    cache = json.loads(CACHE.read_text(encoding="utf-8")) if CACHE.exists() else {}
+    repos = [r for r in api(f"/users/{USER}/repos?per_page=100&type=owner", token, cache)
              if not r["fork"] and r["name"].lower() != USER.lower()]  # skip this profile repo
     langs = {}
     for r in repos:
         if r["size"]:
-            for k, v in json.loads(fetch(f"{api}/repos/{USER}/{r['name']}/languages", token)).items():
+            for k, v in api(f"/repos/{USER}/{r['name']}/languages", token, cache).items():
                 langs[k] = langs.get(k, 0) + v
+    CACHE.write_text(json.dumps(cache), encoding="utf-8")
     total = sum(langs.values()) or 1
     top = sorted(langs.items(), key=lambda kv: -kv[1])
     shown = top[:5] + ([("Other", sum(v for _, v in top[5:]))] if len(top) > 5 else [])

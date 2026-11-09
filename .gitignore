@@ -1,0 +1,3 @@
+# last good GitHub API responses, written by scripts/build.py
+scripts/.github-cache.json
+__pycache__/
