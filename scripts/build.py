@@ -26,9 +26,6 @@ TEXT, SOFT, MUTED, DIM = "#F5F7FA", "#C8CFDB", "#9AA3B5", "#5D6575"
 BLUE, VIOLET, CYAN, GREEN = "#4F7CFF", "#8B5CF6", "#22D3EE", "#3FB950"
 EYEBROW = "#8FA8FF"
 CHIP, CHIP_LINE, LINE = "#0E131D", "#1F2635", "#1E2433"
-# Section headers sit on GitHub's own page background, light or dark, so these colours
-# are picked to stay legible on both.
-HEAD_TITLE, HEAD_NUM, HEAD_RULE = "#5B7CFA", "#6E7781", "#8B949E"
 
 CSS = (".s{font-family:Inter,'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif}"
        ".m{font-family:'JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace}")
@@ -168,8 +165,6 @@ HIGHLIGHTS = [("0.871", "Test AUC, CredWise AI", "ON 30K UNSEEN BORROWERS"),
               ("5", "Client web properties", "CONTRIBUTED TO AT IMPERIAL"),
               ("2", "Live full-stack apps", "TASKFLOW AUTH · LEADDESK MINI")]
 
-SECTIONS = {"02": "ABOUT", "03": "STACK", "04": "EXPERIENCE", "05": "NOW BUILDING",
-            "06": "SELECTED WORK", "07": "HIGHLIGHTS", "08": "ACTIVITY", "09": "CONNECT"}
 
 
 # ───────────────────────────── components ─────────────────────────────
@@ -214,17 +209,6 @@ def button(label, primary):
     body = shape + t((w - 16) / 2, pad + 29, label, 15, ink, weight=600, anchor="middle") + arrow(w - 38, pad + 18.5, ink)
     return doc(w, h + pad, label, "", body)
 
-
-def section(num, title):
-    w, h = 1000, 44
-    body = "\n".join([
-        f'<text x="0" y="24"><tspan class="m" font-size="13" font-weight="600" fill="{HEAD_NUM}">{num}</tspan>'
-        f'<tspan class="s" font-size="19" font-weight="700" letter-spacing="2.5" fill="{HEAD_TITLE}" dx="14">'
-        f"{esc(title)}</tspan></text>",
-        rect(0, 38, w, 1, HEAD_RULE, extra=' opacity=".3"'),
-        rect(0, 37, 56, 2, "url(#acc)"),
-    ])
-    return doc(w, h, f"{num} — {title.title()}", grad("acc", (0, BLUE), (1, VIOLET)), body)
 
 
 def focus():
@@ -435,7 +419,6 @@ def main():
         "highlights.svg": highlights(),
         "activity.svg": activity(),
         "connect.svg": connect(),
-        **{f"sec-{n}.svg": section(n, title) for n, title in SECTIONS.items()},
         **{f'project-{p["slug"]}.svg': project(p) for p in PROJECTS},
     }
     for name, svg in files.items():

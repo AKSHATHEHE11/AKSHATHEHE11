@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="44" viewBox="0 0 1000 44" role="img" aria-label="09 — Connect">
-<title>09 — Connect</title>
-<style>.s{font-family:Inter,'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif}.m{font-family:'JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace}</style>
-<defs><linearGradient id="acc" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4F7CFF" stop-opacity="1"/><stop offset="1" stop-color="#8B5CF6" stop-opacity="1"/></linearGradient></defs>
-<text x="0" y="24"><tspan class="m" font-size="13" font-weight="600" fill="#6E7781">09</tspan><tspan class="s" font-size="19" font-weight="700" letter-spacing="2.5" fill="#5B7CFA" dx="14">CONNECT</tspan></text>
-<rect x="0.0" y="38" width="1000.0" height="1" rx="0" fill="#8B949E" opacity=".3"/>
-<rect x="0.0" y="37" width="56.0" height="2" rx="0" fill="url(#acc)"/>
-</svg>
