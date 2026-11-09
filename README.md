@@ -139,7 +139,7 @@ Shipping production code at Imperial while completing the degree. Projects along
 
 ## Connect
 
-<img src="assets/connect.svg" width="100%" alt="Building something interesting? Let's talk about full-stack products, cloud and applied AI.">
+<p align="center"><b>Building something interesting?</b><br>Let's talk about full-stack products, cloud and applied AI.</p>
 
 <div align="center">
 

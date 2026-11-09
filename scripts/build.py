@@ -327,17 +327,6 @@ def activity():
     return doc(w, h, title, d, "\n".join(parts))
 
 
-def connect():
-    w, h = 1000, 186
-    d, b = panel(w, h, [(500, -20, 520, 180, BLUE, .18)], grid=True)
-    parts = [
-        b,
-        t(500, 58, "CONTACT", 11, EYEBROW, "m", 600, "middle", ls=2.5),
-        t(500, 106, "Building something interesting?", 36, TEXT, weight=700, anchor="middle", ls=-.8),
-        t(500, 142, "Let's talk about full-stack products, cloud and applied AI.", 17, MUTED, anchor="middle"),
-    ]
-    return doc(w, h, "Building something interesting? Let's talk.", d, "\n".join(parts))
-
 
 # ───────────────────────────── build ─────────────────────────────
 
@@ -350,7 +339,6 @@ def main():
         "now-building.svg": now_building(),
         "highlights.svg": highlights(),
         "activity.svg": activity(),
-        "connect.svg": connect(),
         **{f'project-{p["slug"]}.svg': project(p) for p in PROJECTS},
     }
     for name, svg in files.items():
