@@ -9,7 +9,7 @@
 
 <img src="assets/hero.svg" width="100%" alt="Akshat Agrawal. Full-Stack Developer, currently at Imperial Tech Innovations. React, Next.js, Node.js, AWS, AI/ML. Building scalable web applications and AI-powered products.">
 
-<a href="https://www.linkedin.com/in/akshat-agrawal-sde/"><img src="assets/btn-linkedin.svg" height="62" alt="Connect on LinkedIn"></a>&nbsp;&nbsp;<a href="https://github.com/AKSHATHEHE11?tab=repositories"><img src="assets/btn-github.svg" height="62" alt="Browse repositories on GitHub"></a>
+<a href="https://www.linkedin.com/in/akshat-agrawal-sde/"><img src="assets/btn-linkedin.svg" height="60" alt="Connect on LinkedIn"></a>&nbsp;&nbsp;<a href="https://github.com/AKSHATHEHE11?tab=repositories"><img src="assets/btn-github.svg" height="60" alt="Browse repositories on GitHub"></a>
 
 </div>
 
@@ -17,7 +17,7 @@
 
 <img src="assets/sec-02.svg" width="100%" alt="02 — About">
 
-<img align="right" width="42%" src="assets/about.svg" alt="whoami: Akshat Agrawal, Full-Stack Developer at Imperial Tech Innovations. Focus: web, cloud, AI/ML. B.Tech CSE 2027. Building DecisionOS AI.">
+<img align="right" width="42%" src="assets/focus.svg" alt="Focus areas: product engineering (React, Next.js, TypeScript); backend and APIs (Node.js, Express, FastAPI); cloud and delivery (AWS, Vercel, Cloudinary); applied AI/ML (XGBoost, scikit-learn, OpenCV).">
 
 I'm a full-stack developer at **Imperial Tech Innovations**, where I help build and ship production web applications: e-commerce storefronts, admin portals, payment and shipping integrations, and the APIs behind them.
 
@@ -42,7 +42,7 @@ I work across the whole product: **React and Next.js** on the front, **Node.js a
 <tr>
 <td width="27%" valign="top">
 
-<code>● NOW</code>
+<code>Present</code>
 
 **[Imperial Tech Innovations](https://imperialtechinnovations.com)**
 
@@ -153,6 +153,6 @@ Shipping production code at Imperial while completing the degree. Projects along
 
 <div align="center">
 
-<a href="https://www.linkedin.com/in/akshat-agrawal-sde/"><img src="assets/btn-linkedin.svg" height="62" alt="Connect on LinkedIn"></a>&nbsp;&nbsp;<a href="https://github.com/AKSHATHEHE11"><img src="assets/btn-github.svg" height="62" alt="Follow on GitHub"></a>
+<a href="https://www.linkedin.com/in/akshat-agrawal-sde/"><img src="assets/btn-linkedin.svg" height="60" alt="Connect on LinkedIn"></a>&nbsp;&nbsp;<a href="https://github.com/AKSHATHEHE11"><img src="assets/btn-github.svg" height="60" alt="Follow on GitHub"></a>
 
 </div>

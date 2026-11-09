@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="278" viewBox="0 0 360 278" role="img" aria-label="Focus areas: Product engineering (React · Next.js · TypeScript); Backend &amp; APIs (Node.js · Express · FastAPI); Cloud &amp; delivery (AWS · Vercel · Cloudinary); Applied AI / ML (XGBoost · scikit-learn · OpenCV)">
+<title>Focus areas: Product engineering (React · Next.js · TypeScript); Backend &amp; APIs (Node.js · Express · FastAPI); Cloud &amp; delivery (AWS · Vercel · Cloudinary); Applied AI / ML (XGBoost · scikit-learn · OpenCV)</title>
+<style>.s{font-family:Inter,'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif}.m{font-family:'JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace}</style>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#050505" stop-opacity="1"/><stop offset="0.55" stop-color="#080B12" stop-opacity="1"/><stop offset="1" stop-color="#0B1020" stop-opacity="1"/></linearGradient><linearGradient id="edge" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4F7CFF" stop-opacity="0"/><stop offset="0.3" stop-color="#4F7CFF" stop-opacity="1"/><stop offset="0.7" stop-color="#8B5CF6" stop-opacity="1"/><stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/></linearGradient><linearGradient id="acc" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4F7CFF" stop-opacity="1"/><stop offset="1" stop-color="#8B5CF6" stop-opacity="1"/></linearGradient><clipPath id="clip"><rect width="360" height="278" rx="14"/></clipPath><radialGradient id="glow0"><stop offset="0" stop-color="#4F7CFF" stop-opacity="0.14"/><stop offset="1" stop-color="#4F7CFF" stop-opacity="0"/></radialGradient></defs>
+<g clip-path="url(#clip)">
+<rect x="0.0" y="0" width="360.0" height="278" rx="0" fill="url(#bg)"/>
+<ellipse cx="360" cy="0" rx="260" ry="160" fill="url(#glow0)"/>
+<rect x="14.0" y="0" width="332.0" height="1" rx="0" fill="url(#edge)" opacity=".55"/>
+</g>
+<rect x=".5" y=".5" width="359" height="277" rx="14" fill="none" stroke="#1E2433"/>
+<text x="24.0" y="34" class="m" font-size="10.5" font-weight="600" fill="#5D6575" text-anchor="start" letter-spacing="1.5">FOCUS AREAS</text>
+<rect x="0.0" y="54" width="360.0" height="1" rx="0" fill="#FFFFFF" opacity="0.07"/>
+<text x="24.0" y="80" class="m" font-size="11" font-weight="600" fill="#8FA8FF" text-anchor="start">01</text>
+<text x="56.0" y="80" class="s" font-size="15" font-weight="600" fill="#F5F7FA" text-anchor="start">Product engineering</text>
+<text x="56.0" y="98" class="m" font-size="11.5" font-weight="400" fill="#9AA3B5" text-anchor="start">React · Next.js · TypeScript</text>
+<rect x="24.0" y="108" width="312.0" height="1" rx="0" fill="#FFFFFF" opacity="0.06"/>
+<text x="24.0" y="134" class="m" font-size="11" font-weight="600" fill="#8FA8FF" text-anchor="start">02</text>
+<text x="56.0" y="134" class="s" font-size="15" font-weight="600" fill="#F5F7FA" text-anchor="start">Backend &amp; APIs</text>
+<text x="56.0" y="152" class="m" font-size="11.5" font-weight="400" fill="#9AA3B5" text-anchor="start">Node.js · Express · FastAPI</text>
+<rect x="24.0" y="162" width="312.0" height="1" rx="0" fill="#FFFFFF" opacity="0.06"/>
+<text x="24.0" y="188" class="m" font-size="11" font-weight="600" fill="#8FA8FF" text-anchor="start">03</text>
+<text x="56.0" y="188" class="s" font-size="15" font-weight="600" fill="#F5F7FA" text-anchor="start">Cloud &amp; delivery</text>
+<text x="56.0" y="206" class="m" font-size="11.5" font-weight="400" fill="#9AA3B5" text-anchor="start">AWS · Vercel · Cloudinary</text>
+<rect x="24.0" y="216" width="312.0" height="1" rx="0" fill="#FFFFFF" opacity="0.06"/>
+<text x="24.0" y="242" class="m" font-size="11" font-weight="600" fill="#8FA8FF" text-anchor="start">04</text>
+<text x="56.0" y="242" class="s" font-size="15" font-weight="600" fill="#F5F7FA" text-anchor="start">Applied AI / ML</text>
+<text x="56.0" y="260" class="m" font-size="11.5" font-weight="400" fill="#9AA3B5" text-anchor="start">XGBoost · scikit-learn · OpenCV</text>
+</svg>

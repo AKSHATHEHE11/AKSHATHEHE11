@@ -1,47 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="340" viewBox="0 0 1000 340" role="img" aria-label="Now building — DecisionOS AI">
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="300" viewBox="0 0 1000 300" role="img" aria-label="Now building — DecisionOS AI">
 <title>Now building — DecisionOS AI</title>
-<style>.s{font-family:Inter,'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif}.m{font-family:'JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace}.blink{animation:blink 1.1s steps(1) infinite}.pulse{animation:pulse 2.4s ease-in-out infinite}.flow{stroke-dasharray:3 9;animation:flow 1.8s linear infinite}@keyframes blink{50%{opacity:0}}@keyframes pulse{50%{opacity:.25}}@keyframes flow{to{stroke-dashoffset:-24}}@media (prefers-reduced-motion:reduce){.blink,.pulse,.flow{animation:none}}</style>
-<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#050505" stop-opacity="1"/><stop offset="0.55" stop-color="#080B12" stop-opacity="1"/><stop offset="1" stop-color="#0B1020" stop-opacity="1"/></linearGradient><linearGradient id="edge" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4F7CFF" stop-opacity="0"/><stop offset="0.3" stop-color="#4F7CFF" stop-opacity="1"/><stop offset="0.7" stop-color="#8B5CF6" stop-opacity="1"/><stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/></linearGradient><clipPath id="clip"><rect width="1000" height="340" rx="18"/></clipPath><pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#FFFFFF" stroke-opacity=".05"/></pattern><radialGradient id="gfade"><stop offset="0" stop-color="#FFF"/><stop offset="1" stop-color="#FFF" stop-opacity="0"/></radialGradient><mask id="gmask"><rect width="1000" height="340" fill="url(#gfade)"/></mask><radialGradient id="glow0"><stop offset="0" stop-color="#8B5CF6" stop-opacity="0.3"/><stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/></radialGradient><radialGradient id="glow1"><stop offset="0" stop-color="#22D3EE" stop-opacity="0.16"/><stop offset="1" stop-color="#22D3EE" stop-opacity="0"/></radialGradient><radialGradient id="glow2"><stop offset="0" stop-color="#4F7CFF" stop-opacity="0.22"/><stop offset="1" stop-color="#4F7CFF" stop-opacity="0"/></radialGradient><linearGradient id="acc" x1="300" y1="0" x2="470" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#60A5FA" stop-opacity="1"/><stop offset="0.55" stop-color="#A78BFA" stop-opacity="1"/><stop offset="1" stop-color="#22D3EE" stop-opacity="1"/></linearGradient><linearGradient id="link" x1="640" y1="0" x2="790" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/><stop offset="1" stop-color="#22D3EE" stop-opacity="1"/></linearGradient></defs>
+<style>.s{font-family:Inter,'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif}.m{font-family:'JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace}</style>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#050505" stop-opacity="1"/><stop offset="0.55" stop-color="#080B12" stop-opacity="1"/><stop offset="1" stop-color="#0B1020" stop-opacity="1"/></linearGradient><linearGradient id="edge" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4F7CFF" stop-opacity="0"/><stop offset="0.3" stop-color="#4F7CFF" stop-opacity="1"/><stop offset="0.7" stop-color="#8B5CF6" stop-opacity="1"/><stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/></linearGradient><linearGradient id="acc" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4F7CFF" stop-opacity="1"/><stop offset="1" stop-color="#8B5CF6" stop-opacity="1"/></linearGradient><clipPath id="clip"><rect width="1000" height="300" rx="16"/></clipPath><pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#FFFFFF" stroke-opacity=".035"/></pattern><radialGradient id="gfade"><stop offset="0" stop-color="#FFF"/><stop offset="1" stop-color="#FFF" stop-opacity="0"/></radialGradient><mask id="gmask"><rect width="1000" height="300" fill="url(#gfade)"/></mask><radialGradient id="glow0"><stop offset="0" stop-color="#4F7CFF" stop-opacity="0.16"/><stop offset="1" stop-color="#4F7CFF" stop-opacity="0"/></radialGradient><radialGradient id="glow1"><stop offset="0" stop-color="#8B5CF6" stop-opacity="0.1"/><stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/></radialGradient></defs>
 <g clip-path="url(#clip)">
-<rect width="1000" height="340" fill="url(#bg)"/>
-<rect width="1000" height="340" fill="url(#grid)" mask="url(#gmask)"/>
-<ellipse cx="120" cy="40" rx="420" ry="240" fill="url(#glow0)"/>
-<ellipse cx="800" cy="170" rx="360" ry="260" fill="url(#glow1)"/>
-<ellipse cx="900" cy="0" rx="300" ry="160" fill="url(#glow2)"/>
-<rect x="18" y="0" width="964" height="1" fill="url(#edge)" opacity=".7"/>
+<rect x="0.0" y="0" width="1000.0" height="300" rx="0" fill="url(#bg)"/>
+<rect width="1000" height="300" fill="url(#grid)" mask="url(#gmask)"/>
+<ellipse cx="812" cy="150" rx="340" ry="220" fill="url(#glow0)"/>
+<ellipse cx="100" cy="0" rx="340" ry="180" fill="url(#glow1)"/>
+<rect x="16.0" y="0" width="968.0" height="1" rx="0" fill="url(#edge)" opacity=".55"/>
 </g>
-<rect x=".5" y=".5" width="999" height="339" rx="18" fill="none" stroke="#1C2540"/>
-<rect x="48" y="44" width="127.84" height="28" rx="14" fill="#0E1526" stroke="#26304A"/>
-<circle class="pulse" cx="66" cy="58" r="4" fill="#34D399"/>
-<text x="78" y="62" class="m" font-size="11" font-weight="400" fill="#C9D3EA" text-anchor="start" letter-spacing="1">NOW BUILDING</text>
-<text x="46" y="138" class="s" font-size="54" font-weight="800" letter-spacing="-1"><tspan fill="#F3F6FC">DecisionOS</tspan><tspan fill="url(#acc)"> AI</tspan></text>
-<text x="48" y="180" class="s" font-size="18" font-weight="400" fill="#C9D3EA" text-anchor="start">An AI-powered business operating system —</text>
-<text x="48" y="206" class="s" font-size="18" font-weight="400" fill="#C9D3EA" text-anchor="start">designed to help businesses make better</text>
-<text x="48" y="232" class="s" font-size="18" font-weight="400" fill="#C9D3EA" text-anchor="start">decisions using AI.</text>
-<rect x="48" y="262" width="480" height="1" fill="#FFFFFF" opacity="0.07"/>
-<text x="48" y="294" class="m" font-size="11" letter-spacing="1"><tspan fill="#5B647A">STATUS</tspan><tspan fill="#8D97AD" dx="10">IN DEVELOPMENT</tspan><tspan fill="#5B647A" dx="36">CATEGORY</tspan><tspan fill="#8D97AD" dx="10">AI · BUSINESS SOFTWARE</tspan></text>
-<circle cx="790" cy="170" r="34" fill="none" stroke="#FFFFFF" stroke-opacity=".06"/>
-<circle cx="790" cy="170" r="62" fill="none" stroke="#FFFFFF" stroke-opacity=".06"/>
-<circle cx="790" cy="170" r="92" fill="none" stroke="#FFFFFF" stroke-opacity=".06"/>
-<path d="M640 70C720 70 710 170 780 170" fill="none" stroke="#FFFFFF" stroke-opacity=".10"/>
-<path class="flow" d="M640 70C720 70 710 170 780 170" fill="none" stroke="url(#link)" stroke-width="1.4"/>
-<circle cx="640" cy="70" r="5" fill="#0B1020" stroke="#3A4766"/>
-<path d="M640 120C720 120 710 170 780 170" fill="none" stroke="#FFFFFF" stroke-opacity=".10"/>
-<path class="flow" d="M640 120C720 120 710 170 780 170" fill="none" stroke="url(#link)" stroke-width="1.4"/>
-<circle cx="640" cy="120" r="5" fill="#0B1020" stroke="#3A4766"/>
-<path d="M640 170C720 170 710 170 780 170" fill="none" stroke="#FFFFFF" stroke-opacity=".10"/>
-<path class="flow" d="M640 170C720 170 710 170 780 170" fill="none" stroke="url(#link)" stroke-width="1.4"/>
-<circle cx="640" cy="170" r="5" fill="#0B1020" stroke="#3A4766"/>
-<path d="M640 220C720 220 710 170 780 170" fill="none" stroke="#FFFFFF" stroke-opacity=".10"/>
-<path class="flow" d="M640 220C720 220 710 170 780 170" fill="none" stroke="url(#link)" stroke-width="1.4"/>
-<circle cx="640" cy="220" r="5" fill="#0B1020" stroke="#3A4766"/>
-<path d="M640 270C720 270 710 170 780 170" fill="none" stroke="#FFFFFF" stroke-opacity=".10"/>
-<path class="flow" d="M640 270C720 270 710 170 780 170" fill="none" stroke="url(#link)" stroke-width="1.4"/>
-<circle cx="640" cy="270" r="5" fill="#0B1020" stroke="#3A4766"/>
-<circle cx="790" cy="170" r="22" fill="#8B5CF6" opacity=".18" class="pulse"/>
-<circle cx="790" cy="170" r="11" fill="#0B1020" stroke="url(#acc)" stroke-width="2"/>
-<circle cx="790" cy="170" r="4" fill="#F3F6FC"/>
-<path class="flow" d="M802 170H899" stroke="#22D3EE" stroke-width="1.4"/>
-<rect x="899" y="155" width="66" height="30" rx="8" fill="#0E1526" stroke="#22D3EE" stroke-opacity=".6"/>
-<text x="932" y="174" class="m" font-size="11" font-weight="400" fill="#22D3EE" text-anchor="middle">decide</text>
+<rect x=".5" y=".5" width="999" height="299" rx="16" fill="none" stroke="#1E2433"/>
+<circle cx="52" cy="62" r="3.5" fill="#4F7CFF"/>
+<text x="64.0" y="66" class="m" font-size="11" font-weight="600" fill="#8FA8FF" text-anchor="start" letter-spacing="2">NOW BUILDING</text>
+<text x="48.0" y="128" class="s" font-size="48" font-weight="700" fill="#F5F7FA" text-anchor="start" letter-spacing="-1.2">DecisionOS AI</text>
+<text x="48.0" y="168" class="s" font-size="17" font-weight="400" fill="#C8CFDB" text-anchor="start">An AI-powered business operating system designed to</text>
+<text x="48.0" y="194" class="s" font-size="17" font-weight="400" fill="#C8CFDB" text-anchor="start">help businesses make better decisions using AI.</text>
+<rect x="48.0" y="224" width="500.0" height="1" rx="0" fill="#FFFFFF" opacity="0.08"/>
+<text x="48" y="256" class="m" font-size="11" letter-spacing="1"><tspan fill="#5D6575">STATUS</tspan><tspan fill="#C8CFDB" dx="10">IN DEVELOPMENT</tspan><tspan fill="#5D6575" dx="32">CATEGORY</tspan><tspan fill="#C8CFDB" dx="10">AI · BUSINESS SOFTWARE</tspan></text>
+<circle cx="812" cy="150" r="30" fill="none" stroke="#FFFFFF" stroke-opacity=".05"/>
+<circle cx="812" cy="150" r="58" fill="none" stroke="#FFFFFF" stroke-opacity=".05"/>
+<circle cx="812" cy="150" r="88" fill="none" stroke="#FFFFFF" stroke-opacity=".05"/>
+<path d="M652 70C732 70 732 150 802 150" fill="none" stroke="#FFFFFF" stroke-opacity=".14"/>
+<circle cx="652" cy="70" r="4" fill="#0B1020" stroke="#3A4458"/>
+<path d="M652 110C732 110 732 150 802 150" fill="none" stroke="#FFFFFF" stroke-opacity=".14"/>
+<circle cx="652" cy="110" r="4" fill="#0B1020" stroke="#3A4458"/>
+<path d="M652 150C732 150 732 150 802 150" fill="none" stroke="#FFFFFF" stroke-opacity=".14"/>
+<circle cx="652" cy="150" r="4" fill="#0B1020" stroke="#3A4458"/>
+<path d="M652 190C732 190 732 150 802 150" fill="none" stroke="#FFFFFF" stroke-opacity=".14"/>
+<circle cx="652" cy="190" r="4" fill="#0B1020" stroke="#3A4458"/>
+<path d="M652 230C732 230 732 150 802 150" fill="none" stroke="#FFFFFF" stroke-opacity=".14"/>
+<circle cx="652" cy="230" r="4" fill="#0B1020" stroke="#3A4458"/>
+<circle cx="812" cy="150" r="18" fill="#4F7CFF" opacity=".12"/>
+<circle cx="812" cy="150" r="8" fill="#0B1020" stroke="#4F7CFF" stroke-width="1.6"/>
+<circle cx="812" cy="150" r="3" fill="#F5F7FA"/>
+<rect x="822.0" y="149.5" width="82.0" height="1" rx="0" fill="#4F7CFF" opacity=".7"/>
+<rect x="904.0" y="142" width="16.0" height="16" rx="4" fill="#4F7CFF"/>
 </svg>
