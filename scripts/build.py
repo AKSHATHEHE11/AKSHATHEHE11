@@ -4,12 +4,10 @@
     python scripts/build.py
 
 Edit the content below and re-run. Only the activity card pulls live data (GitHub API);
-everything else is static. Standard library only. Logos: Simple Icons (CC0), embedded at build
-time, so the README never depends on a third-party image service at render time.
+everything else is static. Standard library only.
 """
 import json
 import os
-import re
 import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
@@ -19,7 +17,6 @@ from xml.sax.saxutils import escape
 USER = "AKSHATHEHE11"
 OUT = Path(__file__).resolve().parent.parent / "assets"
 CACHE = Path(__file__).resolve().parent / ".github-cache.json"  # last good API responses (gitignored)
-ICON_URL = "https://cdn.jsdelivr.net/npm/simple-icons@16.37.0/icons/{}.svg"
 
 # Neutral greys carry the design; blue is the one accent, violet appears only in thin rules.
 TEXT, SOFT, MUTED, DIM = "#F5F7FA", "#C8CFDB", "#9AA3B5", "#5D6575"
@@ -111,28 +108,7 @@ def panel(w, h, glows, r=16, grid=False):
 FACTS = [("CURRENTLY", "Imperial Tech Innovations"), ("EDUCATION", "B.Tech CSE · 2027"),
          ("BUILDING", "DecisionOS AI")]
 
-FOCUS = [("Product engineering", "React · Next.js · TypeScript"),
-         ("Backend & APIs", "Node.js · Express · FastAPI"),
-         ("Cloud & delivery", "AWS · Vercel · Cloudinary"),
-         ("Applied AI / ML", "XGBoost · scikit-learn · OpenCV")]
 
-STACK = [  # (group, [(label, simple-icons slug or None)])
-    ("Languages", [("C", "c"), ("C++", "cplusplus"), ("Java", "openjdk"), ("JavaScript", "javascript"),
-                   ("TypeScript", "typescript"), ("Python", "python")]),
-    ("Frontend", [("React", "react"), ("Next.js", "nextdotjs"), ("Redux Toolkit", "redux"),
-                  ("Tailwind CSS", "tailwindcss")]),
-    ("Backend", [("Node.js", "nodedotjs"), ("Express.js", "express"), ("FastAPI", "fastapi"),
-                 ("REST APIs", None), ("JWT", "jsonwebtokens"), ("Bcrypt", None), ("RBAC", None)]),
-    ("Database", [("MongoDB", "mongodb"), ("PostgreSQL", "postgresql"), ("MySQL", "mysql"),
-                  ("Redis", "redis")]),
-    ("Cloud & Deploy", [("AWS", None), ("Vercel", "vercel"), ("Cloudinary", "cloudinary"),
-                        ("Git", "git"), ("GitHub", "github")]),
-    ("AI / ML", [("Scikit-learn", "scikitlearn"), ("Pandas", "pandas"), ("NumPy", "numpy"),
-                 ("XGBoost", None), ("YOLOv8", "ultralytics"), ("OpenCV", "opencv"), ("OpenAI API", None)]),
-    ("Integrations", [("Razorpay", "razorpay"), ("Webhooks", None), ("Shiprocket", None),
-                      ("Shipmozo", None), ("Meta Pixel", "meta"), ("Google Analytics", "googleanalytics"),
-                      ("Google Tag Manager", "googletagmanager")]),
-]
 
 PROJECTS = [
     dict(slug="credwise", tag="AI · FINTECH", name="CredWise AI", live=False,
@@ -211,46 +187,6 @@ def button(label, primary):
 
 
 
-def focus():
-    w, row = 360, 54
-    h = 54 + row * len(FOCUS) + 8
-    d, b = panel(w, h, [(w, 0, 260, 160, BLUE, .14)], r=14)
-    parts = [b, t(24, 34, "FOCUS AREAS", 10.5, DIM, "m", 600, ls=1.5), hline(0, 54, w)]
-    for i, (title, sub) in enumerate(FOCUS):
-        y = 54 + i * row
-        parts += [t(24, y + 26, f"{i + 1:02d}", 11, EYEBROW, "m", 600), t(56, y + 26, title, 15, TEXT, weight=600),
-                  t(56, y + 44, sub, 11.5, MUTED, "m")]
-        if i < len(FOCUS) - 1:
-            parts.append(hline(24, y + row, w - 48, .06))
-    return doc(w, h, "Focus areas: " + "; ".join(f"{a} ({b})" for a, b in FOCUS), d, "\n".join(parts))
-
-
-def stack(icons):
-    w, x0, x_max = 1000, 228, 960
-    chip_h, gap, pad = 32, 8, 16
-    parts, y = [], 32
-    for gi, (group, items) in enumerate(STACK):
-        x, top = x0, y
-        parts.append(t(40, top + 20.5, group.upper(), 11, MUTED, "m", 600, ls=1.5))
-        for label, slug in items:
-            cw = 34 + mono_w(label, 12.5) + 14
-            if x + cw > x_max:
-                x, y = x0, y + chip_h + gap
-            parts.append(rect(x, y, cw, chip_h, CHIP, 8, f' stroke="{CHIP_LINE}"'))
-            if slug:
-                parts.append(f'<path transform="translate({x + 11:.1f} {y + 8.5}) scale({15 / 24:.4f})" '
-                             f'fill="#B4BCCB" d="{icons[slug]}"/>')
-            else:
-                parts.append(f'<circle cx="{x + 18.5:.1f}" cy="{y + 16}" r="3" fill="{BLUE}" opacity=".85"/>')
-            parts.append(t(x + 34, y + 20.5, label, 12.5, SOFT, "m"))
-            x += cw + gap
-        y += chip_h
-        if gi < len(STACK) - 1:
-            parts.append(hline(40, y + pad, w - 80, .06))
-            y += 2 * pad + 1
-    h = y + 32
-    d, b = panel(w, h, [(w, 0, 420, 240, BLUE, .12)])
-    return doc(w, h, "Tech stack", d, b + "\n" + "\n".join(parts))
 
 
 def now_building():
@@ -407,14 +343,10 @@ def connect():
 
 def main():
     OUT.mkdir(exist_ok=True)
-    slugs = {s for _, items in STACK for _, s in items if s}
-    icons = {s: re.search(r' d="([^"]+)"', fetch(ICON_URL.format(s))).group(1) for s in sorted(slugs)}
     files = {
         "hero.svg": hero(),
         "btn-linkedin.svg": button("LinkedIn", True),
         "btn-github.svg": button("GitHub", False),
-        "focus.svg": focus(),
-        "stack.svg": stack(icons),
         "now-building.svg": now_building(),
         "highlights.svg": highlights(),
         "activity.svg": activity(),

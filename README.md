@@ -13,10 +13,7 @@
 
 </div>
 
-
 ## About
-
-<img align="right" width="42%" src="assets/focus.svg" alt="Focus areas: product engineering (React, Next.js, TypeScript); backend and APIs (Node.js, Express, FastAPI); cloud and delivery (AWS, Vercel, Cloudinary); applied AI/ML (XGBoost, scikit-learn, OpenCV).">
 
 I'm a full-stack developer at **Imperial Tech Innovations**, where I help build and ship production web applications: e-commerce storefronts, admin portals, payment and shipping integrations, and the APIs behind them.
 
@@ -26,12 +23,24 @@ I work across the whole product: **React and Next.js** on the front, **Node.js a
 - **Full lifecycle.** Requirements, build, integrate, test, debug, optimise.
 - **AI that explains itself.** My credit-risk model gives the reasons behind every score.
 
-<br clear="right">
+| Focus area | Tools |
+|:--|:--|
+| **Product engineering** | React · Next.js · TypeScript |
+| **Backend & APIs** | Node.js · Express · FastAPI |
+| **Cloud & delivery** | AWS · Vercel · Cloudinary |
+| **Applied AI / ML** | XGBoost · scikit-learn · OpenCV |
 
 ## Stack
 
-<img src="assets/stack.svg" width="100%" alt="Tech stack. Languages: C, C++, Java, JavaScript, TypeScript, Python. Frontend: React, Next.js, Redux Toolkit, Tailwind CSS. Backend: Node.js, Express.js, FastAPI, REST APIs, JWT, Bcrypt, RBAC. Database: MongoDB, PostgreSQL, MySQL, Redis. Cloud and deploy: AWS, Vercel, Cloudinary, Git, GitHub. AI/ML: Scikit-learn, Pandas, NumPy, XGBoost, YOLOv8, OpenCV, OpenAI API. Integrations: Razorpay, Webhooks, Shiprocket, Shipmozo, Meta Pixel, Google Analytics, Google Tag Manager.">
-
+| | |
+|:--|:--|
+| **Languages** | C · C++ · Java · JavaScript · TypeScript · Python |
+| **Frontend** | React · Next.js · Redux Toolkit · Tailwind CSS |
+| **Backend** | Node.js · Express.js · FastAPI · REST APIs · JWT · Bcrypt · RBAC |
+| **Database** | MongoDB · PostgreSQL · MySQL · Redis |
+| **Cloud & deploy** | AWS · Vercel · Cloudinary · Git · GitHub |
+| **AI / ML** | Scikit-learn · Pandas · NumPy · XGBoost · YOLOv8 · OpenCV · OpenAI API |
+| **Integrations** | Razorpay · Webhooks · Shiprocket · Shipmozo · Meta Pixel · Google Analytics · Google Tag Manager |
 
 ## Experience
 
@@ -78,11 +87,9 @@ Shipping production code at Imperial while completing the degree. Projects along
 </tr>
 </table>
 
-
 ## Now building
 
 <img src="assets/now-building.svg" width="100%" alt="Now building: DecisionOS AI, an AI-powered business operating system designed to help businesses make better decisions using AI. Status: in development.">
-
 
 ## Selected work
 
@@ -114,7 +121,6 @@ Shipping production code at Imperial while completing the degree. Projects along
 
 **Also built:** &nbsp;`AR Emergency Route Simulator` &nbsp;`Smart Healthcare Emergency Response` &nbsp;`Smart Traffic Management` &nbsp;`Retail Demand Forecasting` &nbsp;`Hospital Management System` &nbsp;`Travel Planner DBMS`
 
-
 ## Highlights
 
 <img src="assets/highlights.svg" width="100%" alt="Highlights: 0.871 test AUC for CredWise AI on 30K unseen borrowers; 5 client web properties contributed to at Imperial; 2 live full-stack apps, TaskFlow Auth and LeadDesk Mini.">
@@ -125,13 +131,11 @@ Shipping production code at Imperial while completing the degree. Projects along
   **Certifications:** &nbsp;`Name — Issuer, Year` → link to the credential URL
 -->
 
-
 ## Activity
 
 <img src="assets/activity.svg" width="100%" alt="GitHub activity card: public repositories, live demos, recently pushed repositories and language breakdown, generated from the GitHub API.">
 
 <sub>Generated from the GitHub API by <a href="scripts/build.py">scripts/build.py</a> and refreshed weekly by a GitHub Action. The contribution calendar is GitHub's own, just below this README.</sub>
-
 
 ## Connect
 
