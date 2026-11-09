@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="330" viewBox="0 0 1000 330" role="img" aria-label="Akshat Agrawal — Full-stack developer building scalable web applications and AI-powered products">
+<title>Akshat Agrawal — Full-stack developer building scalable web applications and AI-powered products</title>
+<style>.s{font-family:Inter,'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif}.m{font-family:'JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace}</style>
+<defs><clipPath id="card"><rect width="1000" height="330" rx="20"/></clipPath></defs>
+<g clip-path="url(#card)">
+<rect x="0.0" y="0" width="1000.0" height="330" rx="0" fill="#FBFAF7"/>
+<rect x="0.0" y="0" width="5.0" height="330" rx="0" fill="#FF5A1F"/>
+</g>
+<rect x=".5" y=".5" width="999" height="329" rx="20" fill="none" stroke="#E4E0D7"/>
+<text x="56.0" y="122" class="s" font-size="66" font-weight="800" fill="#111111" text-anchor="start" letter-spacing="-2.2">Akshat Agrawal</text>
+<text x="58" y="168" class="s" font-size="21"><tspan fill="#111111" font-weight="600">Full-stack developer</tspan><tspan fill="#3A3732"> building scalable web applications</tspan></text>
+<text x="58.0" y="196" class="s" font-size="21" font-weight="400" fill="#3A3732" text-anchor="start">and AI-powered products.</text>
+<g transform="translate(840 52)"><rect width="104" height="104" rx="22.9" fill="#111111" stroke="#111111"/><g transform="scale(1.6250)" fill="none" stroke-width="4.5" stroke-linecap="square"><path d="M19 15h-6v34h6" stroke="#FF5A1F"/><path d="M45 15h6v34h-6" stroke="#FF5A1F"/><path d="M24.5 44 32 20l7.5 24M27.4 36h9.2" stroke="#F2EEE7" stroke-linejoin="round"/></g></g>
+<text x="892.0" y="186" class="m" font-size="12.5" font-weight="600" fill="#85817A" text-anchor="middle" letter-spacing="2">AKSHAT/OS</text>
+<rect x="56.0" y="234" width="888.0" height="1" rx="0" fill="#ECE8E1"/>
+<text x="56.0" y="268" class="m" font-size="12.5" font-weight="600" fill="#85817A" text-anchor="start" letter-spacing="1.6">CURRENTLY</text>
+<text x="56.0" y="298" class="s" font-size="18" font-weight="600" fill="#111111" text-anchor="start">Imperial Tech Innovations</text>
+<text x="392.0" y="268" class="m" font-size="12.5" font-weight="600" fill="#85817A" text-anchor="start" letter-spacing="1.6">EDUCATION</text>
+<text x="392.0" y="298" class="s" font-size="18" font-weight="600" fill="#111111" text-anchor="start">B.Tech CSE · 2027</text>
+<text x="664.0" y="268" class="m" font-size="12.5" font-weight="600" fill="#85817A" text-anchor="start" letter-spacing="1.6">BUILDING</text>
+<text x="664.0" y="298" class="s" font-size="18" font-weight="600" fill="#111111" text-anchor="start">DecisionOS AI</text>
+</svg>

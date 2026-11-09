@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="268" viewBox="0 0 1000 268" role="img" aria-label="Now building — DecisionOS AI, an AI-powered business operating system. Status: in development.">
+<title>Now building — DecisionOS AI, an AI-powered business operating system. Status: in development.</title>
+<style>.s{font-family:Inter,'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif}.m{font-family:'JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace}</style>
+<defs><clipPath id="card"><rect width="1000" height="268" rx="18"/></clipPath></defs>
+<g clip-path="url(#card)">
+<rect x="0.0" y="0" width="1000.0" height="268" rx="0" fill="#FBFAF7"/>
+</g>
+<rect x=".5" y=".5" width="999" height="267" rx="18" fill="none" stroke="#E4E0D7"/>
+<circle cx="60" cy="56" r="4" fill="#FF5A1F"/>
+<text x="74.0" y="61" class="m" font-size="12.5" font-weight="700" fill="#B83C0B" text-anchor="start" letter-spacing="2">NOW BUILDING</text>
+<text x="56.0" y="122" class="s" font-size="46" font-weight="800" fill="#111111" text-anchor="start" letter-spacing="-1.4">DecisionOS AI</text>
+<text x="57.0" y="160" class="s" font-size="18" font-weight="400" fill="#3A3732" text-anchor="start">An AI-powered business operating system designed to</text>
+<text x="57.0" y="186" class="s" font-size="18" font-weight="400" fill="#3A3732" text-anchor="start">help businesses make better decisions using AI.</text>
+<rect x="56.0" y="210" width="540.0" height="1" rx="0" fill="#ECE8E1"/>
+<text x="57" y="242" class="m" font-size="12.5" letter-spacing="1.2"><tspan fill="#85817A" font-weight="600">STATUS</tspan><tspan fill="#3A3732" dx="10">IN DEVELOPMENT</tspan><tspan fill="#85817A" dx="34" font-weight="600">CATEGORY</tspan><tspan fill="#3A3732" dx="10">AI · BUSINESS SOFTWARE</tspan></text>
+<path d="M668 62C752 62 748 134 816 134" fill="none" stroke="#E4E0D7" stroke-width="1.4"/>
+<circle cx="668" cy="62" r="5" fill="#FBFAF7" stroke="#85817A" stroke-width="1.4"/>
+<path d="M668 98C752 98 748 134 816 134" fill="none" stroke="#E4E0D7" stroke-width="1.4"/>
+<circle cx="668" cy="98" r="5" fill="#FBFAF7" stroke="#85817A" stroke-width="1.4"/>
+<path d="M668 134C752 134 748 134 816 134" fill="none" stroke="#E4E0D7" stroke-width="1.4"/>
+<circle cx="668" cy="134" r="5" fill="#FBFAF7" stroke="#85817A" stroke-width="1.4"/>
+<path d="M668 170C752 170 748 134 816 134" fill="none" stroke="#E4E0D7" stroke-width="1.4"/>
+<circle cx="668" cy="170" r="5" fill="#FBFAF7" stroke="#85817A" stroke-width="1.4"/>
+<path d="M668 206C752 206 748 134 816 134" fill="none" stroke="#E4E0D7" stroke-width="1.4"/>
+<circle cx="668" cy="206" r="5" fill="#FBFAF7" stroke="#85817A" stroke-width="1.4"/>
+<circle cx="832" cy="134" r="26" fill="none" stroke="#ECE8E1" stroke-width="1.4"/>
+<circle cx="832" cy="134" r="13" fill="#FF5A1F"/>
+<circle cx="832" cy="134" r="4" fill="#FBFAF7"/>
+<rect x="858.0" y="133.25" width="52.0" height="1.5" rx="0" fill="#FF5A1F"/>
+<rect x="910.0" y="126" width="16.0" height="16" rx="4" fill="#111111"/>
+</svg>

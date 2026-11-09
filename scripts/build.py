@@ -3,8 +3,9 @@
 
     python scripts/build.py
 
-Edit the content below and re-run. Only the activity card pulls live data (GitHub API);
-everything else is static. Standard library only.
+Each card is drawn twice, in a light and a dark version; the README shows the one that matches the
+viewer's GitHub theme. Edit the content below and re-run. Only the activity card pulls live data
+(GitHub API, cached in scripts/.github-cache.json); everything else is static. Standard library only.
 """
 import json
 import os
@@ -18,14 +19,32 @@ USER = "AKSHATHEHE11"
 OUT = Path(__file__).resolve().parent.parent / "assets"
 CACHE = Path(__file__).resolve().parent / ".github-cache.json"  # last good API responses (gitignored)
 
-# Neutral greys carry the design; blue is the one accent, violet appears only in thin rules.
-TEXT, SOFT, MUTED, DIM = "#F5F7FA", "#C8CFDB", "#9AA3B5", "#5D6575"
-BLUE, VIOLET, CYAN, GREEN = "#4F7CFF", "#8B5CF6", "#22D3EE", "#3FB950"
-EYEBROW = "#8FA8FF"
-CHIP, CHIP_LINE, LINE = "#0E131D", "#1F2635", "#1E2433"
+# One system, two themes. Ink and bone carry the design; orange is the only accent.
+# accent_ink is the orange that still passes contrast as small text on the card.
+THEMES = {
+    "light": dict(
+        card="#FBFAF7", line="#E4E0D7", rule="#ECE8E1",
+        text="#111111", soft="#3A3732", muted="#66625A", dim="#85817A",
+        accent="#FF5A1F", accent_ink="#B83C0B", live="#1A7F37",
+        chip="#F3F0EA", chip_line="#E1DCD2",
+        mark="#111111", mark_line="#111111",
+        btn="#111111", btn_ink="#FBFAF7", btn2_line="#C9C3B8", btn2_ink="#111111",
+        bars=["#FF5A1F", "#111111", "#5E5A53", "#9A958B", "#C9C3B8", "#E3DED5"],
+    ),
+    "dark": dict(
+        card="#151412", line="#2D2B27", rule="#252320",
+        text="#F2EEE7", soft="#D3CEC4", muted="#A39F96", dim="#7F7B72",
+        accent="#FF5A1F", accent_ink="#FF8152", live="#3FB950",
+        chip="#1C1B18", chip_line="#33312C",
+        mark="#1F1E1B", mark_line="#3A3833",
+        btn="#F2EEE7", btn_ink="#151412", btn2_line="#4A4741", btn2_ink="#F2EEE7",
+        bars=["#FF5A1F", "#F2EEE7", "#A39F96", "#6F6B63", "#4C4943", "#363430"],
+    ),
+}
 
-CSS = (".s{font-family:Inter,'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif}"
-       ".m{font-family:'JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace}")
+SANS = "Inter,'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif"
+MONO = "'JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace"
+CSS = f".s{{font-family:{SANS}}}.m{{font-family:{MONO}}}"
 
 
 def esc(s):
@@ -37,7 +56,7 @@ def mono_w(s, size, ls=0):
     return len(s) * (size * 0.62 + ls)
 
 
-def t(x, y, s, size=14, fill=TEXT, cls="s", weight=400, anchor="start", ls=0):
+def t(x, y, s, size, fill, cls="s", weight=400, anchor="start", ls=0):
     extra = f' letter-spacing="{ls}"' if ls else ""
     return (f'<text x="{x:.1f}" y="{y}" class="{cls}" font-size="{size}" font-weight="{weight}" '
             f'fill="{fill}" text-anchor="{anchor}"{extra}>{esc(s)}</text>')
@@ -48,22 +67,8 @@ def span(s, fill, **attrs):
     return f'<tspan fill="{fill}"{a}>{esc(s)}</tspan>'
 
 
-def grad(id_, *stops, x1=0, y1=0, x2=1, y2=0):
-    st = "".join(f'<stop offset="{s[0]}" stop-color="{s[1]}" stop-opacity="{s[2] if len(s) > 2 else 1}"/>'
-                 for s in stops)
-    return f'<linearGradient id="{id_}" x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}">{st}</linearGradient>'
-
-
 def rect(x, y, w, h, fill, rx=0, extra=""):
     return f'<rect x="{x:.1f}" y="{y}" width="{w:.1f}" height="{h}" rx="{rx}" fill="{fill}"{extra}/>'
-
-
-def hline(x, y, w, opacity=0.07):
-    return rect(x, y, w, 1, "#FFFFFF", extra=f' opacity="{opacity}"')
-
-
-def vline(x, y, h, opacity=0.07):
-    return rect(x, y, 1, h, "#FFFFFF", extra=f' opacity="{opacity}"')
 
 
 def arrow(x, y, color, size=9):
@@ -71,44 +76,37 @@ def arrow(x, y, color, size=9):
             f'fill="none" stroke="{color}" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>')
 
 
-def doc(w, h, title, defs, body):
+def doc(w, h, title, body, defs=""):
     return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" '
             f'role="img" aria-label="{esc(title)}">\n<title>{esc(title)}</title>\n<style>{CSS}</style>\n'
             f"<defs>{defs}</defs>\n{body}\n</svg>\n")
 
 
-def panel(w, h, glows, r=16, grid=False):
-    """Dark card: gradient base, optional faint grid, soft glow, hairline border, lit top edge."""
-    defs = [
-        grad("bg", (0, "#050505"), (0.55, "#080B12"), (1, "#0B1020"), x2=1, y2=1),
-        grad("edge", (0, BLUE, 0), (0.3, BLUE), (0.7, VIOLET), (1, VIOLET, 0)),
-        grad("acc", (0, BLUE), (1, VIOLET)),
-        f'<clipPath id="clip"><rect width="{w}" height="{h}" rx="{r}"/></clipPath>',
-    ]
-    body = ['<g clip-path="url(#clip)">', rect(0, 0, w, h, "url(#bg)")]
-    if grid:
-        defs += ['<pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">'
-                 '<path d="M32 0H0V32" fill="none" stroke="#FFFFFF" stroke-opacity=".035"/></pattern>',
-                 '<radialGradient id="gfade"><stop offset="0" stop-color="#FFF"/>'
-                 '<stop offset="1" stop-color="#FFF" stop-opacity="0"/></radialGradient>',
-                 f'<mask id="gmask"><rect width="{w}" height="{h}" fill="url(#gfade)"/></mask>']
-        body.append(f'<rect width="{w}" height="{h}" fill="url(#grid)" mask="url(#gmask)"/>')
-    for i, (cx, cy, rx, ry, c, o) in enumerate(glows):
-        defs.append(f'<radialGradient id="glow{i}"><stop offset="0" stop-color="{c}" stop-opacity="{o}"/>'
-                    f'<stop offset="1" stop-color="{c}" stop-opacity="0"/></radialGradient>')
-        body.append(f'<ellipse cx="{cx}" cy="{cy}" rx="{rx}" ry="{ry}" fill="url(#glow{i})"/>')
-    body.append(rect(r, 0, w - 2 * r, 1, "url(#edge)", extra=' opacity=".55"'))
+def card(P, w, h, r=16, bar=False):
+    """Flat card: paper fill, hairline border, optional orange edge. No glows, no gradients."""
+    defs = f'<clipPath id="card"><rect width="{w}" height="{h}" rx="{r}"/></clipPath>'
+    body = [f'<g clip-path="url(#card)">', rect(0, 0, w, h, P["card"])]
+    if bar:
+        body.append(rect(0, 0, 5, h, P["accent"]))
     body.append("</g>")
-    body.append(f'<rect x=".5" y=".5" width="{w - 1}" height="{h - 1}" rx="{r}" fill="none" stroke="{LINE}"/>')
-    return "".join(defs), "\n".join(body)
+    body.append(f'<rect x=".5" y=".5" width="{w - 1}" height="{h - 1}" rx="{r}" fill="none" stroke="{P["line"]}"/>')
+    return defs, body
+
+
+def mark(P, x, y, size):
+    """The [A] mark from the AKSHAT/OS identity."""
+    k = size / 64
+    return (f'<g transform="translate({x} {y})">'
+            f'<rect width="{size}" height="{size}" rx="{size * 0.22:.1f}" fill="{P["mark"]}" stroke="{P["mark_line"]}"/>'
+            f'<g transform="scale({k:.4f})" fill="none" stroke-width="4.5" stroke-linecap="square">'
+            f'<path d="M19 15h-6v34h6" stroke="#FF5A1F"/><path d="M45 15h6v34h-6" stroke="#FF5A1F"/>'
+            f'<path d="M24.5 44 32 20l7.5 24M27.4 36h9.2" stroke="#F2EEE7" stroke-linejoin="round"/></g></g>')
 
 
 # ───────────────────────────── content ─────────────────────────────
 
 FACTS = [("CURRENTLY", "Imperial Tech Innovations"), ("EDUCATION", "B.Tech CSE · 2027"),
          ("BUILDING", "DecisionOS AI")]
-
-
 
 PROJECTS = [
     dict(slug="credwise", tag="AI · FINTECH", name="CredWise AI", live=False,
@@ -142,121 +140,101 @@ HIGHLIGHTS = [("0.871", "Test AUC, CredWise AI", "ON 30K UNSEEN BORROWERS"),
               ("2", "Live full-stack apps", "TASKFLOW AUTH · LEADDESK MINI")]
 
 
-
 # ───────────────────────────── components ─────────────────────────────
 
-def hero():
-    w, h = 1000, 400
-    d, b = panel(w, h, [(500, -30, 560, 250, BLUE, .20), (500, -30, 300, 150, VIOLET, .10)], grid=True)
-    eyebrow = "FULL-STACK DEVELOPER"
-    ew = mono_w(eyebrow, 12, 3)
-    chips = ["React", "Next.js", "Node.js", "AWS", "AI/ML"]
-    widths = [mono_w(c, 12) + 24 for c in chips]
-    x = 500 - (sum(widths) + 8 * (len(chips) - 1)) / 2
-    parts = [
-        b,
-        rect(500 - ew / 2 - 56, 73, 40, 1, EYEBROW, extra=' opacity=".45"'),
-        rect(500 + ew / 2 + 16, 73, 40, 1, EYEBROW, extra=' opacity=".45"'),
-        t(500, 78, eyebrow, 12, EYEBROW, "m", 600, "middle", ls=3),
-        t(500, 160, "Akshat Agrawal", 76, TEXT, weight=700, anchor="middle", ls=-2.5),
-        t(500, 204, "Building scalable web applications and AI-powered products.", 19, MUTED, anchor="middle"),
+def hero(P):
+    w, h = 1000, 330
+    d, b = card(P, w, h, r=20, bar=True)
+    parts = b + [
+        t(56, 122, "Akshat Agrawal", 66, P["text"], weight=800, ls=-2.2),
+        f'<text x="58" y="168" class="s" font-size="21">{span("Full-stack developer", P["text"], font_weight=600)}'
+        f'{span(" building scalable web applications", P["soft"])}</text>',
+        t(58, 196, "and AI-powered products.", 21, P["soft"]),
+        mark(P, w - 56 - 104, 52, 104),
+        t(w - 56 - 52, 186, "AKSHAT/OS", 12.5, P["dim"], "m", 600, "middle", ls=2),
+        rect(56, 234, w - 112, 1, P["rule"]),
     ]
-    for c, cw in zip(chips, widths):
-        parts += [rect(x, 230, cw, 28, CHIP, 7, f' stroke="{CHIP_LINE}"'), t(x + cw / 2, 249, c, 12, SOFT, "m", anchor="middle")]
-        x += cw + 8
-    col = (w - 80) / len(FACTS)
-    parts.append(hline(40, 296, w - 80, .08))
-    for i, (label, value) in enumerate(FACTS):
-        cx = 40 + col * (i + .5)
-        if i:
-            parts.append(vline(40 + col * i, 316, 64))
-        parts += [t(cx, 338, label, 10.5, DIM, "m", 600, "middle", ls=1.5), t(cx, 366, value, 16, TEXT, weight=600, anchor="middle")]
-    return doc(w, h, "Akshat Agrawal — Full-Stack Developer", d, "\n".join(parts))
+    xs = [56, 392, 664]
+    for (label, value), x in zip(FACTS, xs):
+        parts += [t(x, 268, label, 12.5, P["dim"], "m", 600, ls=1.6), t(x, 298, value, 18, P["text"], weight=600)]
+    return doc(w, h, "Akshat Agrawal — Full-stack developer building scalable web applications and AI-powered products",
+               "\n".join(parts), d)
 
 
-def button(label, primary):
-    w, h, pad = 168, 46, 18  # pad: transparent top margin; GitHub strips the CSS that could space images
+def button(P, label, primary):
+    w, h, pad = 172, 48, 14  # pad: transparent top margin; GitHub strips the CSS that could space images
     if primary:
-        shape = rect(0, pad, w, h, "#3B6CF6", 10)
-        ink = "#FFFFFF"
+        shape, ink = rect(0, pad, w, h, P["btn"], 24), P["btn_ink"]
     else:
-        shape = f'<rect x=".5" y="{pad + .5}" width="{w - 1}" height="{h - 1}" rx="10" fill="#0B0F17" stroke="#343C4F"/>'
-        ink = "#E6E9EF"
-    body = shape + t((w - 16) / 2, pad + 29, label, 15, ink, weight=600, anchor="middle") + arrow(w - 38, pad + 18.5, ink)
-    return doc(w, h + pad, label, "", body)
+        shape = f'<rect x=".75" y="{pad + .75}" width="{w - 1.5}" height="{h - 1.5}" rx="24" fill="none" stroke="{P["btn2_line"]}" stroke-width="1.5"/>'
+        ink = P["btn2_ink"]
+    body = shape + t((w - 18) / 2, pad + 30, label, 16, ink, weight=600, anchor="middle") + arrow(w - 40, pad + 19.5, ink)
+    return doc(w, h + pad, label, body)
 
 
-
-
-
-def now_building():
-    w, h = 1000, 300
-    d, b = panel(w, h, [(812, 150, 340, 220, BLUE, .16), (100, 0, 340, 180, VIOLET, .10)], grid=True)
-    hub, out = (812, 150), (912, 150)
-    viz = [f'<circle cx="{hub[0]}" cy="{hub[1]}" r="{r}" fill="none" stroke="#FFFFFF" stroke-opacity=".05"/>'
-           for r in (30, 58, 88)]
+def now_building(P):
+    w, h = 1000, 268
+    d, b = card(P, w, h, r=18)
+    hub, out = (832, 134), (918, 134)
+    viz = []
     for i in range(5):
-        x, y = 652, 70 + i * 40
-        viz += [f'<path d="M{x} {y}C{x + 80} {y} {hub[0] - 80} {hub[1]} {hub[0] - 10} {hub[1]}" fill="none" '
-                f'stroke="#FFFFFF" stroke-opacity=".14"/>',
-                f'<circle cx="{x}" cy="{y}" r="4" fill="#0B1020" stroke="#3A4458"/>']
-    viz += [f'<circle cx="{hub[0]}" cy="{hub[1]}" r="18" fill="{BLUE}" opacity=".12"/>',
-            f'<circle cx="{hub[0]}" cy="{hub[1]}" r="8" fill="#0B1020" stroke="{BLUE}" stroke-width="1.6"/>',
-            f'<circle cx="{hub[0]}" cy="{hub[1]}" r="3" fill="{TEXT}"/>',
-            rect(hub[0] + 10, hub[1] - .5, out[0] - hub[0] - 18, 1, BLUE, extra=' opacity=".7"'),
-            rect(out[0] - 8, out[1] - 8, 16, 16, BLUE, 4)]
-    parts = [
-        b,
-        f'<circle cx="52" cy="62" r="3.5" fill="{BLUE}"/>',
-        t(64, 66, "NOW BUILDING", 11, EYEBROW, "m", 600, ls=2),
-        t(48, 128, "DecisionOS AI", 48, TEXT, weight=700, ls=-1.2),
-        t(48, 168, "An AI-powered business operating system designed to", 17, SOFT),
-        t(48, 194, "help businesses make better decisions using AI.", 17, SOFT),
-        hline(48, 224, 500, .08),
-        f'<text x="48" y="256" class="m" font-size="11" letter-spacing="1">{span("STATUS", DIM)}'
-        f'{span("IN DEVELOPMENT", SOFT, dx=10)}{span("CATEGORY", DIM, dx=32)}'
-        f'{span("AI · BUSINESS SOFTWARE", SOFT, dx=10)}</text>',
+        x, y = 668, 62 + i * 36
+        viz += [f'<path d="M{x} {y}C{x + 84} {y} {hub[0] - 84} {hub[1]} {hub[0] - 16} {hub[1]}" fill="none" '
+                f'stroke="{P["line"]}" stroke-width="1.4"/>',
+                f'<circle cx="{x}" cy="{y}" r="5" fill="{P["card"]}" stroke="{P["dim"]}" stroke-width="1.4"/>']
+    viz += [f'<circle cx="{hub[0]}" cy="{hub[1]}" r="26" fill="none" stroke="{P["rule"]}" stroke-width="1.4"/>',
+            f'<circle cx="{hub[0]}" cy="{hub[1]}" r="13" fill="{P["accent"]}"/>',
+            f'<circle cx="{hub[0]}" cy="{hub[1]}" r="4" fill="{P["card"]}"/>',
+            rect(hub[0] + 26, hub[1] - .75, out[0] - hub[0] - 34, 1.5, P["accent"]),
+            rect(out[0] - 8, out[1] - 8, 16, 16, P["text"], 4)]
+    parts = b + [
+        f'<circle cx="60" cy="56" r="4" fill="{P["accent"]}"/>',
+        t(74, 61, "NOW BUILDING", 12.5, P["accent_ink"], "m", 700, ls=2),
+        t(56, 122, "DecisionOS AI", 46, P["text"], weight=800, ls=-1.4),
+        t(57, 160, "An AI-powered business operating system designed to", 18, P["soft"]),
+        t(57, 186, "help businesses make better decisions using AI.", 18, P["soft"]),
+        rect(56, 210, 540, 1, P["rule"]),
+        f'<text x="57" y="242" class="m" font-size="12.5" letter-spacing="1.2">{span("STATUS", P["dim"], font_weight=600)}'
+        f'{span("IN DEVELOPMENT", P["soft"], dx=10)}{span("CATEGORY", P["dim"], dx=34, font_weight=600)}'
+        f'{span("AI · BUSINESS SOFTWARE", P["soft"], dx=10)}</text>',
     ] + viz
-    return doc(w, h, "Now building — DecisionOS AI", d, "\n".join(parts))
+    return doc(w, h, "Now building — DecisionOS AI, an AI-powered business operating system. Status: in development.",
+               "\n".join(parts), d)
 
 
-def project(p):
-    w, h = 480, 280
-    d, b = panel(w, h, [(w, 0, 300, 190, BLUE, .16)], r=14)
-    status, dot = ("LIVE", GREEN) if p["live"] else ("SOURCE", DIM)
-    sw = mono_w(status, 10, 1) + 30
+def project(P, p):
+    w, h = 480, 276
+    d, b = card(P, w, h, r=16)
+    status, dot = ("LIVE", P["live"]) if p["live"] else ("SOURCE", P["dim"])
+    sw = mono_w(status, 11.5, 1) + 32
     sx = w - 28 - sw
-    parts = [
-        b,
-        t(28, 44, p["tag"], 10.5, MUTED, "m", 600, ls=1.5),
-        rect(sx, 29, sw, 22, CHIP, 6, f' stroke="{CHIP_LINE}"'),
-        f'<circle cx="{sx + 11:.1f}" cy="40" r="3" fill="{dot}"/>',
-        t(sx + 20, 44, status, 10, SOFT, "m", 600, ls=1),
-        t(28, 92, p["name"], 28, TEXT, weight=700, ls=-.5),
+    parts = b + [
+        t(28, 48, p["tag"], 12, P["muted"], "m", 600, ls=1.4),
+        rect(sx, 31, sw, 24, P["chip"], 12, f' stroke="{P["chip_line"]}"'),
+        f'<circle cx="{sx + 13:.1f}" cy="43" r="3.5" fill="{dot}"/>',
+        t(sx + 23, 47, status, 11.5, P["soft"], "m", 600, ls=1),
+        t(28, 96, p["name"], 29, P["text"], weight=800, ls=-.6),
     ]
-    parts += [t(28, 124 + i * 21, line, 14, MUTED) for i, line in enumerate(p["desc"])]
-    parts += [rect(28, 193, 2, 14, BLUE, 1), t(38, 204.5, p["proof"], 11.5, SOFT, "m")]
-    x = 28
-    for s in p["stack"]:
-        cw = mono_w(s, 11) + 20
-        parts += [rect(x, 226, cw, 26, CHIP, 6, f' stroke="{CHIP_LINE}"'), t(x + 10, 243, s, 11, SOFT, "m")]
-        x += cw + 6
-    return doc(w, h, f'{p["name"]} — {" ".join(p["desc"])}', d, "\n".join(parts))
+    parts += [t(28, 130 + i * 22, line, 15.5, P["soft"]) for i, line in enumerate(p["desc"])]
+    parts += [rect(28, 202, 7, 7, P["accent"], 1.5), t(43, 209.5, p["proof"], 12.5, P["text"], "m", 500),
+              rect(28, 228, w - 56, 1, P["rule"]),
+              t(28, 254, " · ".join(p["stack"]), 12.5, P["muted"], "m")]
+    return doc(w, h, f'{p["name"]} — {" ".join(p["desc"])}', "\n".join(parts), d)
 
 
-def highlights():
-    w, h = 1000, 176
-    d, b = panel(w, h, [(500, -20, 520, 160, BLUE, .12)])
+def highlights(P):
+    w, h = 1000, 182
+    d, b = card(P, w, h, r=18)
     col = w / len(HIGHLIGHTS)
-    parts = [b]
+    parts = list(b)
     for i, (num, label, sub) in enumerate(HIGHLIGHTS):
-        x = i * col + 40
+        x = i * col + 44
         if i:
-            parts.append(vline(i * col, 36, h - 72))
-        parts += [rect(x, 40, 24, 2, "url(#acc)"), t(x, 100, num, 46, TEXT, weight=700, ls=-1),
-                  t(x, 130, label, 15, SOFT, weight=600), t(x, 152, sub, 10.5, DIM, "m", ls=1)]
+            parts.append(rect(i * col, 40, 1, h - 80, P["rule"]))
+        parts += [rect(x, 42, 28, 3, P["accent"], 1.5), t(x, 108, num, 52, P["text"], weight=800, ls=-1.5),
+                  t(x, 138, label, 17, P["soft"], weight=600), t(x, 162, sub, 12, P["dim"], "m", 600, ls=1.1)]
     title = "Highlights: " + "; ".join(f"{n} {l.lower()}" for n, l, _ in HIGHLIGHTS)
-    return doc(w, h, title, d, "\n".join(parts))
+    return doc(w, h, title, "\n".join(parts), d)
 
 
 def fetch(url, token=None):
@@ -278,7 +256,7 @@ def api(path, token, cache):
     return cache[path]
 
 
-def activity():
+def activity_data():
     token = os.environ.get("GITHUB_TOKEN")
     cache = json.loads(CACHE.read_text(encoding="utf-8")) if CACHE.exists() else {}
     repos = [r for r in api(f"/users/{USER}/repos?per_page=100&type=owner", token, cache)
@@ -289,58 +267,66 @@ def activity():
             for k, v in api(f"/repos/{USER}/{r['name']}/languages", token, cache).items():
                 langs[k] = langs.get(k, 0) + v
     CACHE.write_text(json.dumps(cache), encoding="utf-8")
-    total = sum(langs.values()) or 1
     top = sorted(langs.items(), key=lambda kv: -kv[1])
-    shown = top[:5] + ([("Other", sum(v for _, v in top[5:]))] if len(top) > 5 else [])
-    recent = sorted((r for r in repos if r["size"]), key=lambda r: r["pushed_at"], reverse=True)[:3]
-    live = sum(1 for r in repos if r.get("homepage"))
-    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    return dict(
+        repos=len(repos),
+        live=sum(1 for r in repos if r.get("homepage")),
+        langs=len(langs),
+        total=sum(langs.values()) or 1,
+        shown=top[:5] + ([("Other", sum(v for _, v in top[5:]))] if len(top) > 5 else []),
+        recent=[(r["name"], r["pushed_at"][:10])
+                for r in sorted((r for r in repos if r["size"]), key=lambda r: r["pushed_at"], reverse=True)[:3]],
+        today=datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+    )
 
-    w, h = 1000, 280
-    d, b = panel(w, h, [(0, 0, 380, 200, BLUE, .14)])
-    parts = [b, t(40, 46, "PUBLIC FOOTPRINT", 10.5, DIM, "m", 600, ls=1.5),
-             t(960, 46, f"SYNCED {today} · GITHUB API", 10.5, DIM, "m", anchor="end", ls=1.5)]
-    for i, (n, label) in enumerate([(len(repos), "PUBLIC REPOS"), (live, "LIVE DEMOS"), (len(langs), "LANGUAGES")]):
-        x = 40 + i * 170
-        parts += [t(x, 112, n, 44, TEXT, weight=700), t(x, 136, label, 10.5, MUTED, "m", 600, ls=1.5)]
-    parts += [vline(590, 66, 80), t(620, 78, "RECENTLY PUSHED", 10.5, DIM, "m", 600, ls=1.5)]
-    for i, r in enumerate(recent):
-        y = 104 + i * 22
-        parts += [t(620, y, r["name"], 13, SOFT, "m"), t(960, y, r["pushed_at"][:10], 12, DIM, "m", anchor="end")]
-    parts += [hline(40, 168, 920), t(40, 198, "LANGUAGES BY CODE SIZE", 10.5, DIM, "m", 600, ls=1.5)]
-    colors = [BLUE, VIOLET, CYAN, "#2DD4BF", "#64748B", "#3F4A61"]
-    x, bar_w = 40.0, 920
-    parts.append(f'<clipPath id="bar"><rect x="40" y="212" width="{bar_w}" height="8" rx="4"/></clipPath>'
+
+def activity(P, a):
+    w, h = 1000, 290
+    d, b = card(P, w, h, r=18)
+    parts = b + [t(44, 52, "PUBLIC FOOTPRINT", 12.5, P["dim"], "m", 600, ls=1.6),
+                 t(956, 52, f"SYNCED {a['today']} · GITHUB API", 12.5, P["dim"], "m", anchor="end", ls=1.2)]
+    for i, (n, label) in enumerate([(a["repos"], "PUBLIC REPOS"), (a["live"], "LIVE DEMOS"), (a["langs"], "LANGUAGES")]):
+        x = 44 + i * 172
+        parts += [t(x, 120, n, 46, P["text"], weight=800, ls=-1), t(x, 146, label, 12, P["muted"], "m", 600, ls=1.5)]
+    parts += [rect(592, 78, 1, 76, P["rule"]), t(624, 88, "RECENTLY PUSHED", 12.5, P["dim"], "m", 600, ls=1.6)]
+    for i, (name, day) in enumerate(a["recent"]):
+        y = 116 + i * 24
+        parts += [t(624, y, name, 14, P["soft"], "m"), t(956, y, day, 13, P["dim"], "m", anchor="end")]
+    parts += [rect(44, 176, 912, 1, P["rule"]), t(44, 208, "LANGUAGES BY CODE SIZE", 12.5, P["dim"], "m", 600, ls=1.6)]
+    x, bar_w = 44.0, 912
+    parts.append(f'<clipPath id="bar"><rect x="44" y="222" width="{bar_w}" height="8" rx="4"/></clipPath>'
                  '<g clip-path="url(#bar)">')
-    for i, (_, v) in enumerate(shown):
-        seg = bar_w * v / total
-        parts.append(rect(x, 212, seg + .5, 8, colors[i]))
+    for i, (_, v) in enumerate(a["shown"]):
+        seg = bar_w * v / a["total"]
+        parts.append(rect(x, 222, seg + .5, 8, P["bars"][i]))
         x += seg
     parts.append("</g>")
-    x = 40
-    for i, (k, v) in enumerate(shown):
-        label = f"{k} {100 * v / total:.1f}%"
-        parts += [rect(x, 241, 8, 8, colors[i], 2), t(x + 14, 249, label, 12, SOFT, "m")]
-        x += 14 + mono_w(label, 12) + 26
-    title = (f"GitHub activity: {len(repos)} public repos, {live} live demos; languages "
-             + ", ".join(f"{k} {100 * v / total:.0f}%" for k, v in shown))
-    return doc(w, h, title, d, "\n".join(parts))
-
+    x = 44
+    for i, (k, v) in enumerate(a["shown"]):
+        label = f"{k} {100 * v / a['total']:.1f}%"
+        parts += [rect(x, 252, 9, 9, P["bars"][i], 2, f' stroke="{P["line"]}"'), t(x + 15, 261, label, 13, P["soft"], "m")]
+        x += 15 + mono_w(label, 13) + 26
+    title = (f"GitHub activity: {a['repos']} public repos, {a['live']} live demos; languages "
+             + ", ".join(f"{k} {100 * v / a['total']:.0f}%" for k, v in a["shown"]))
+    return doc(w, h, title, "\n".join(parts), d)
 
 
 # ───────────────────────────── build ─────────────────────────────
 
 def main():
     OUT.mkdir(exist_ok=True)
-    files = {
-        "hero.svg": hero(),
-        "btn-linkedin.svg": button("LinkedIn", True),
-        "btn-github.svg": button("GitHub", False),
-        "now-building.svg": now_building(),
-        "highlights.svg": highlights(),
-        "activity.svg": activity(),
-        **{f'project-{p["slug"]}.svg': project(p) for p in PROJECTS},
-    }
+    act = activity_data()
+    files = {}
+    for theme, P in THEMES.items():
+        files.update({
+            f"hero-{theme}.svg": hero(P),
+            f"btn-linkedin-{theme}.svg": button(P, "LinkedIn", True),
+            f"btn-github-{theme}.svg": button(P, "GitHub", False),
+            f"now-building-{theme}.svg": now_building(P),
+            f"highlights-{theme}.svg": highlights(P),
+            f"activity-{theme}.svg": activity(P, act),
+            **{f'project-{p["slug"]}-{theme}.svg': project(P, p) for p in PROJECTS},
+        })
     for name, svg in files.items():
         ET.fromstring(svg)  # malformed SVG renders as a broken image on GitHub: fail the build instead
         (OUT / name).write_text(svg, encoding="utf-8", newline="\n")

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="182" viewBox="0 0 1000 182" role="img" aria-label="Highlights: 0.871 test auc, credwise ai; 5 client web properties; 2 live full-stack apps">
+<title>Highlights: 0.871 test auc, credwise ai; 5 client web properties; 2 live full-stack apps</title>
+<style>.s{font-family:Inter,'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif}.m{font-family:'JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace}</style>
+<defs><clipPath id="card"><rect width="1000" height="182" rx="18"/></clipPath></defs>
+<g clip-path="url(#card)">
+<rect x="0.0" y="0" width="1000.0" height="182" rx="0" fill="#FBFAF7"/>
+</g>
+<rect x=".5" y=".5" width="999" height="181" rx="18" fill="none" stroke="#E4E0D7"/>
+<rect x="44.0" y="42" width="28.0" height="3" rx="1.5" fill="#FF5A1F"/>
+<text x="44.0" y="108" class="s" font-size="52" font-weight="800" fill="#111111" text-anchor="start" letter-spacing="-1.5">0.871</text>
+<text x="44.0" y="138" class="s" font-size="17" font-weight="600" fill="#3A3732" text-anchor="start">Test AUC, CredWise AI</text>
+<text x="44.0" y="162" class="m" font-size="12" font-weight="600" fill="#85817A" text-anchor="start" letter-spacing="1.1">ON 30K UNSEEN BORROWERS</text>
+<rect x="333.3" y="40" width="1.0" height="102" rx="0" fill="#ECE8E1"/>
+<rect x="377.3" y="42" width="28.0" height="3" rx="1.5" fill="#FF5A1F"/>
+<text x="377.3" y="108" class="s" font-size="52" font-weight="800" fill="#111111" text-anchor="start" letter-spacing="-1.5">5</text>
+<text x="377.3" y="138" class="s" font-size="17" font-weight="600" fill="#3A3732" text-anchor="start">Client web properties</text>
+<text x="377.3" y="162" class="m" font-size="12" font-weight="600" fill="#85817A" text-anchor="start" letter-spacing="1.1">CONTRIBUTED TO AT IMPERIAL</text>
+<rect x="666.7" y="40" width="1.0" height="102" rx="0" fill="#ECE8E1"/>
+<rect x="710.7" y="42" width="28.0" height="3" rx="1.5" fill="#FF5A1F"/>
+<text x="710.7" y="108" class="s" font-size="52" font-weight="800" fill="#111111" text-anchor="start" letter-spacing="-1.5">2</text>
+<text x="710.7" y="138" class="s" font-size="17" font-weight="600" fill="#3A3732" text-anchor="start">Live full-stack apps</text>
+<text x="710.7" y="162" class="m" font-size="12" font-weight="600" fill="#85817A" text-anchor="start" letter-spacing="1.1">TASKFLOW AUTH · LEADDESK MINI</text>
+</svg>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="290" viewBox="0 0 1000 290" role="img" aria-label="GitHub activity: 5 public repos, 3 live demos; languages JavaScript 73%, Python 20%, TypeScript 5%, CSS 2%, HTML 1%">
+<title>GitHub activity: 5 public repos, 3 live demos; languages JavaScript 73%, Python 20%, TypeScript 5%, CSS 2%, HTML 1%</title>
+<style>.s{font-family:Inter,'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif}.m{font-family:'JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace}</style>
+<defs><clipPath id="card"><rect width="1000" height="290" rx="18"/></clipPath></defs>
+<g clip-path="url(#card)">
+<rect x="0.0" y="0" width="1000.0" height="290" rx="0" fill="#FBFAF7"/>
+</g>
+<rect x=".5" y=".5" width="999" height="289" rx="18" fill="none" stroke="#E4E0D7"/>
+<text x="44.0" y="52" class="m" font-size="12.5" font-weight="600" fill="#85817A" text-anchor="start" letter-spacing="1.6">PUBLIC FOOTPRINT</text>
+<text x="956.0" y="52" class="m" font-size="12.5" font-weight="400" fill="#85817A" text-anchor="end" letter-spacing="1.2">SYNCED 2026-11-09 · GITHUB API</text>
+<text x="44.0" y="120" class="s" font-size="46" font-weight="800" fill="#111111" text-anchor="start" letter-spacing="-1">5</text>
+<text x="44.0" y="146" class="m" font-size="12" font-weight="600" fill="#66625A" text-anchor="start" letter-spacing="1.5">PUBLIC REPOS</text>
+<text x="216.0" y="120" class="s" font-size="46" font-weight="800" fill="#111111" text-anchor="start" letter-spacing="-1">3</text>
+<text x="216.0" y="146" class="m" font-size="12" font-weight="600" fill="#66625A" text-anchor="start" letter-spacing="1.5">LIVE DEMOS</text>
+<text x="388.0" y="120" class="s" font-size="46" font-weight="800" fill="#111111" text-anchor="start" letter-spacing="-1">5</text>
+<text x="388.0" y="146" class="m" font-size="12" font-weight="600" fill="#66625A" text-anchor="start" letter-spacing="1.5">LANGUAGES</text>
+<rect x="592.0" y="78" width="1.0" height="76" rx="0" fill="#ECE8E1"/>
+<text x="624.0" y="88" class="m" font-size="12.5" font-weight="600" fill="#85817A" text-anchor="start" letter-spacing="1.6">RECENTLY PUSHED</text>
+<text x="624.0" y="116" class="m" font-size="14" font-weight="400" fill="#3A3732" text-anchor="start">ai_coding_agent</text>
+<text x="956.0" y="116" class="m" font-size="13" font-weight="400" fill="#85817A" text-anchor="end">2026-08-01</text>
+<text x="624.0" y="140" class="m" font-size="14" font-weight="400" fill="#3A3732" text-anchor="start">TASKFLOW-AUTH</text>
+<text x="956.0" y="140" class="m" font-size="13" font-weight="400" fill="#85817A" text-anchor="end">2026-07-28</text>
+<text x="624.0" y="164" class="m" font-size="14" font-weight="400" fill="#3A3732" text-anchor="start">LeadDesk-Mini</text>
+<text x="956.0" y="164" class="m" font-size="13" font-weight="400" fill="#85817A" text-anchor="end">2026-07-25</text>
+<rect x="44.0" y="176" width="912.0" height="1" rx="0" fill="#ECE8E1"/>
+<text x="44.0" y="208" class="m" font-size="12.5" font-weight="600" fill="#85817A" text-anchor="start" letter-spacing="1.6">LANGUAGES BY CODE SIZE</text>
+<clipPath id="bar"><rect x="44" y="222" width="912" height="8" rx="4"/></clipPath><g clip-path="url(#bar)">
+<rect x="44.0" y="222" width="662.6" height="8" rx="0" fill="#FF5A1F"/>
+<rect x="706.1" y="222" width="183.0" height="8" rx="0" fill="#111111"/>
+<rect x="888.6" y="222" width="45.3" height="8" rx="0" fill="#5E5A53"/>
+<rect x="933.3" y="222" width="17.7" height="8" rx="0" fill="#9A958B"/>
+<rect x="950.5" y="222" width="6.0" height="8" rx="0" fill="#C9C3B8"/>
+</g>
+<rect x="44.0" y="252" width="9.0" height="9" rx="2" fill="#FF5A1F" stroke="#E4E0D7"/>
+<text x="59.0" y="261" class="m" font-size="13" font-weight="400" fill="#3A3732" text-anchor="start">JavaScript 72.6%</text>
+<rect x="214.0" y="252" width="9.0" height="9" rx="2" fill="#111111" stroke="#E4E0D7"/>
+<text x="229.0" y="261" class="m" font-size="13" font-weight="400" fill="#3A3732" text-anchor="start">Python 20.0%</text>
+<rect x="351.7" y="252" width="9.0" height="9" rx="2" fill="#5E5A53" stroke="#E4E0D7"/>
+<text x="366.7" y="261" class="m" font-size="13" font-weight="400" fill="#3A3732" text-anchor="start">TypeScript 4.9%</text>
+<rect x="513.6" y="252" width="9.0" height="9" rx="2" fill="#9A958B" stroke="#E4E0D7"/>
+<text x="528.6" y="261" class="m" font-size="13" font-weight="400" fill="#3A3732" text-anchor="start">CSS 1.9%</text>
+<rect x="619.1" y="252" width="9.0" height="9" rx="2" fill="#C9C3B8" stroke="#E4E0D7"/>
+<text x="634.1" y="261" class="m" font-size="13" font-weight="400" fill="#3A3732" text-anchor="start">HTML 0.6%</text>
+</svg>

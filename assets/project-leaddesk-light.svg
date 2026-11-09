@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="276" viewBox="0 0 480 276" role="img" aria-label="LeadDesk Mini — Lead-management CRM for small sales teams: capture, assign and track leads through a six-stage pipeline with role-based access.">
+<title>LeadDesk Mini — Lead-management CRM for small sales teams: capture, assign and track leads through a six-stage pipeline with role-based access.</title>
+<style>.s{font-family:Inter,'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif}.m{font-family:'JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace}</style>
+<defs><clipPath id="card"><rect width="480" height="276" rx="16"/></clipPath></defs>
+<g clip-path="url(#card)">
+<rect x="0.0" y="0" width="480.0" height="276" rx="0" fill="#FBFAF7"/>
+</g>
+<rect x=".5" y=".5" width="479" height="275" rx="16" fill="none" stroke="#E4E0D7"/>
+<text x="28.0" y="48" class="m" font-size="12" font-weight="600" fill="#66625A" text-anchor="start" letter-spacing="1.4">FULL-STACK · CRM</text>
+<rect x="387.5" y="31" width="64.5" height="24" rx="12" fill="#F3F0EA" stroke="#E1DCD2"/>
+<circle cx="400.5" cy="43" r="3.5" fill="#1A7F37"/>
+<text x="410.5" y="47" class="m" font-size="11.5" font-weight="600" fill="#3A3732" text-anchor="start" letter-spacing="1">LIVE</text>
+<text x="28.0" y="96" class="s" font-size="29" font-weight="800" fill="#111111" text-anchor="start" letter-spacing="-0.6">LeadDesk Mini</text>
+<text x="28.0" y="130" class="s" font-size="15.5" font-weight="400" fill="#3A3732" text-anchor="start">Lead-management CRM for small sales teams:</text>
+<text x="28.0" y="152" class="s" font-size="15.5" font-weight="400" fill="#3A3732" text-anchor="start">capture, assign and track leads through a</text>
+<text x="28.0" y="174" class="s" font-size="15.5" font-weight="400" fill="#3A3732" text-anchor="start">six-stage pipeline with role-based access.</text>
+<rect x="28.0" y="202" width="7.0" height="7" rx="1.5" fill="#FF5A1F"/>
+<text x="43.0" y="209.5" class="m" font-size="12.5" font-weight="500" fill="#111111" text-anchor="start">Vercel + Render + MongoDB Atlas</text>
+<rect x="28.0" y="228" width="424.0" height="1" rx="0" fill="#ECE8E1"/>
+<text x="28.0" y="254" class="m" font-size="12.5" font-weight="400" fill="#66625A" text-anchor="start">React · Express · MongoDB · Tailwind · RBAC</text>
+</svg>
